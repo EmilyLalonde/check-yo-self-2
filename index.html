@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Check Yo'Self Fa Real</title>
   <meta charset="utf-8">
@@ -9,60 +8,47 @@
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,400,500,600,800" rel="stylesheet">
 </head>
-
 <body>
-  <header class="top-header">
-    <h1>CHECK <span>YO' </span>SELF</h1>
-    <div>
-    <button class="search-btn"></button> 
-    <input type="text" placeholder="Search" class="search-input" aria-required="true">
+  <header>
+    <h1>CHECH <span>YO'</span>SELF</h1>
+    <div class="search-div">
+      <button type="submit" class="search-btn"></button>
+      <input type="text" placeholder="Search" class="search-input">
     </div>
   </header>
-  <section class="form-field">
+  <aside>
     <form>
-      <div class="title-div">
       <label for="task-title">Task Title</label>
-      <input type="text" class="task-title-input" id="task-title">
-    </div>
-      <h3>Don't Ever Play Yourself</h3>
-      <img src="images/delete.svg">
-      <h3>Every Chance I Get I Water the Plants</h3>
-      <img src="images/delete.svg">
-      <h3>Lion! Cloth Talk</h3>
-      <img src="images/delete.svg">
-      <div class="item-div">
+      <input type="text" class="title-input" id="task-title">
+      <ul class="task-generate-list">
+        <img src="images/delete.svg">
+        <li class="todo-task-item">Task Item Here</li>
+      </ul>
       <label for="task-item">Task Item</label>
-      <input type="text" class="task-item-input" id="task-item" aria-required="true">
-    </div>
-      <button class="plus-btn"></button>
-      <button type="submit" class="create-tasks-btn">Make Task List</button>
-      <button type="submit" class="clear-btn">Clear All</button>
-      <button type="submit" class="filter-urgency-btn">Filter By Urgency</button>
+      <input type="text" class="item-input" id="task-item">
+      <button type="submit" class="nav-btn" id="make-task-btn">Make Task List</button>
+      <button type="submit" class="nav-btn" id="clear-all-btn">Clear All</button>
+      <button type="submit" class="nav-btn" id="filter-urgency-btn">Filter by Urgency</button>
     </form>
-  </section>
+  </aside>
   <section class="card-field">
-    <article class="card">
+    <article>
       <header class="card-header">
         <h2>Task Title</h2>
       </header>
-      <main class="card-tasks-main">
-        <img src="images/checkbox.svg">
-        <h3>Don't Ever Play Yourself</h3>
-        <img src="images/checkbox.svg">
-        <h3>Every Chance I Get I Water the Plants</h3>
-        <img src="images/checkbox-active.svg">
-        <h3>Lion! Cloth Talk</h3>
-      </main>
-      <footer class=" card-footer">
-        <img src="images/urgent-active.svg">
+      <section class="card-task-field">
+        <ul>
+          <img src="images/checkbox.svg" alt="small empty circle">
+          <li>Task Item Here</li>
+        </ul>
+      </section>
+      <footer class="card-footer">
+        <img src="images/urgent.svg" alt="clickable lightning bolt logo">
         <p>URGENT</p>
-        <img src="images/delete.svg">
+        <img src="images/delete.svg" alt="circle button with an x through it">
         <p>DELETE</p>
       </footer>
     </article>
   </section>
-  <script src="todo-list.js"></script>
-  <script src="main.js"></script>
 </body>
-
 </html>

@@ -5,6 +5,7 @@
 
 header {
   background-color: #1f1e3d;
+  padding-bottom: 20px;
 }
 
 h1 {
@@ -20,6 +21,7 @@ span {
   border-radius: 2px;
   height: 40px;
   margin-left: 3%;
+  padding-bottom: 20px;
   width: 94%;
 }
 
@@ -46,25 +48,95 @@ aside{
   background-color: #597a8b;
 }
 
+form {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
 label {
   color: white;
   display: block;
   margin-left: 5%;
+  margin-top: 10px;
+}
+
+li {
+  display: inline-block;
+  list-style-type:none
+}
+
+.todo-task-item {
+  color: white;
 }
 
 .title-input,
 .item-input {
+  border: 1px solid #1f1e3d;
+  border-radius: 2px;
   height: 40px;
   margin-left: 5%;
   width: 90%;
 }
 
+.title-input {
+  margin-bottom: 10px;
+}
+
 .nav-btn {
+  background-color: #1f1e3d;
+  border: none;
+  border-radius: 2px;
+  color: white;
   display: block;
+  height: 40px;
   margin-left: 5%;
+  margin-top: 20px;
   width: 90%;
+}
+
+.card-field {
+  background-color: #f2f6f7;
+  border: 2px solid #597a8b;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 100%;
+  grid-gap: 15px 15px;
+  grid-template-rows: repeat(3, 1fr);
+  padding: 20px;
+}
+
+article {
+  background-color: white;
+  border: 1px solid #c7d3d8;
+  display: grid;
+  grid-template-rows: 10% 75% 15%;
 }
 
 .card-header {
   background-color: white;
+  border-bottom: 1px solid #c7d3d8;
+  height: 30px;
+}
+
+.card-task-field {
+  margin-top: 40px;
+}
+
+footer {
+  border-top: 1px solid #c7d3d8;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+
+.footer-section {
+  background-color: white; 
+  border: 1px solid #c7d3d8;
+  border-top: none; 
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-icons {
+  display: inline-block;
 }

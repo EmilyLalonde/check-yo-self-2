@@ -21,7 +21,7 @@
       <label for="task-title">Task Title</label>
       <input type="text" class="title-input" id="task-title">
       <ul class="task-generate-list">
-        <img src="images/delete.svg">
+        <img src="images/delete.svg" alt="circle button with an x through it" class="aside-delete-btn">
         <li class="todo-task-item">Task Item Here</li>
       </ul>
       <label for="task-item">Task Item</label>
@@ -43,11 +43,15 @@
         </ul>
       </section>
       <footer class="card-footer">
-        <img src="images/urgent.svg" alt="clickable lightning bolt logo">
-        <p>URGENT</p>
-        <img src="images/delete.svg" alt="circle button with an x through it">
-        <p>DELETE</p>
+        <img src="images/urgent.svg" alt="clickable lightning bolt logo" class="card-icons" id="urgent-btn">
+        <img src="images/delete.svg" alt="circle button with an x through it" class="card-icons" id="delete-card-btn">
+        <!-- <p>URGENT</p>
+        <p>DELETE</p> -->
       </footer>
+      <section class="footer-section">
+        <p>URGENT</p>
+        <p>DELETE</p>
+      </section>
     </article>
   </section>
 </body>

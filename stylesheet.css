@@ -3,12 +3,7 @@
   margin: 0;
 }
 
-img {
-  height: 20px;
-  width: 20px;
-}
-
-.top-header {
+header {
   background-color: #1f1e3d;
 }
 
@@ -16,42 +11,60 @@ h1 {
   color: white;
   text-align: center;
 }
-
 span {
-  color: #ffc30b;
+  color: #ffc303;
 }
 
-div {
-  height: 50px;
-}
-
-.search-input {
-  width: 80%;
+.search-div {
+  border: 1px solid #5356a4;
+  border-radius: 2px;
+  height: 40px;
+  margin-left: 3%;
+  width: 94%;
 }
 
 .search-btn {
-  background-color: #c8d3d9;
   background-image: url(images/search.svg);
   background-repeat: no-repeat;
-  height: 30px;
-  width: 30px;
+  height: 38px;
+  margin-right: -3px;
+  width: 8%;
 }
 
-.form-field {
+.search-input {
+  float: right;
+  height: 38px;
+  width: 92%;
+}
+
+img {
+  height: 20px;
+  width: 20px;
+}
+
+aside{
   background-color: #597a8b;
 }
 
-.item-div,
-.title-div {
-  display: inline-block;
-}
-
 label {
+  color: white;
   display: block;
+  margin-left: 5%;
 }
 
-.create-tasks-btn,
-.clear-btn,
-.filter-urgency-btn{
+.title-input,
+.item-input {
+  height: 40px;
+  margin-left: 5%;
+  width: 90%;
+}
+
+.nav-btn {
   display: block;
+  margin-left: 5%;
+  width: 90%;
+}
+
+.card-header {
+  background-color: white;
 }

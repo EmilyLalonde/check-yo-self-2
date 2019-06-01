@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Check Yo'Self Fa Real</title>
   <meta charset="utf-8">
@@ -8,11 +9,12 @@
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,400,500,600,800" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <h1>CHECH <span>YO'</span>SELF</h1>
+  <header class="site-header">
+    <h1>CHECK <span class="yo-span">YO'</span> SELF</h1>
     <div class="search-div">
-      <button type="submit" class="search-btn"></button>
+      <input type="image" src="images/search.svg" class="search-btn"></input>
       <input type="text" placeholder="Search" class="search-input">
     </div>
   </header>
@@ -37,22 +39,40 @@
         <h2>Task Title</h2>
       </header>
       <section class="card-task-field">
-        <ul>
+        <ul class="card-list">
           <img src="images/checkbox.svg" alt="small empty circle">
-          <li>Task Item Here</li>
+          <li class="card-task-items">Task Item Here</li>
         </ul>
       </section>
       <footer class="card-footer">
-        <img src="images/urgent.svg" alt="clickable lightning bolt logo" class="card-icons" id="urgent-btn">
-        <img src="images/delete.svg" alt="circle button with an x through it" class="card-icons" id="delete-card-btn">
-        <!-- <p>URGENT</p>
-        <p>DELETE</p> -->
+        <a class="urgent-button">
+          <img src="images/urgent.svg" class="urgent-button" alt="Lightning urgent Button"><span class="urgent-text">URGENT</span>
+        </a>
+        <a class="delete">
+          <img src="images/delete.svg" class="delete-card-button" alt="Delete Card X Button"><span class="delete-text">DELETE</span>
+        </a>
       </footer>
-      <section class="footer-section">
-        <p>URGENT</p>
-        <p>DELETE</p>
-      </section>
     </article>
+    <article class="yellow-card">
+        <header class="card-header yellow-bottom-border">
+          <h2>Task Title</h2>
+        </header>
+        <section class="card-task-field">
+          <ul class="card-list">
+            <img src="images/checkbox.svg" alt="small empty circle">
+            <li class="card-task-items">Task Item Here</li>
+          </ul>
+        </section>
+        <footer class="card-footer yellow-top-border">
+          <a class="urgent-button">
+            <img src="images/urgent.svg" class="urgent-button" alt="Lightning urgent Button"><span class="urgent-text">URGENT</span>
+          </a>
+          <a class="delete">
+            <img src="images/delete.svg" class="delete-card-button" alt="Delete Card X Button"><span class="delete-text">DELETE</span>
+          </a>
+        </footer>
+      </article>
   </section>
 </body>
+
 </html>

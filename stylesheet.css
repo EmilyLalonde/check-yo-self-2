@@ -67,7 +67,7 @@ label {
 }
 
 li {
-  display: inline-block;
+  display: inline;
   list-style-type:none
 }
 
@@ -75,8 +75,7 @@ li {
   color: white;
 }
 
-.title-input,
-.item-input {
+.title-input {
   border: 1px solid #1f1e3d;
   border-radius: 2px;
   height: 40px;
@@ -86,6 +85,19 @@ li {
 
 .title-input {
   margin-bottom: 10px;
+}
+
+.item-input {
+  border: 1px solid #1f1e3d;
+  border-radius: 2px;
+  height: 40px;
+  margin-left: 5%;
+  width: 85%;
+}
+
+.add-task-btn {
+  height: 20px;
+  width: 20px;
 }
 
 .nav-btn {

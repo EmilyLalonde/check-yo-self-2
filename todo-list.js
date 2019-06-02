@@ -5,8 +5,10 @@ class ToDoList {
     this.urgent = list.urgent;
     this.tasks = list.tasks;
   }
-  saveToStorage() {
-  }
+  saveToStorage(newTask) {
+      var stringifiedNewTask = JSON.stringify(newTask);
+      localStorage.setItem('listArray', stringifiedNewTask);
+  };
 
   deleteFromStorage() {
   }

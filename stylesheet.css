@@ -105,11 +105,12 @@ li {
 .card-field {
   background-color: #f2f6f7;
   border: 2px solid #597a8b;
-  /* display: grid; */
+  column-width: 13em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   height: 100vh;
-  /* grid-template-columns: 100%;
-  grid-gap: 15px 15px;
-  grid-template-rows: repeat(3, 1fr); */
+  max-height: 1000px;
   padding: 20px;
 }
 
@@ -225,8 +226,11 @@ footer {
   }
 
   .card-Field {
-    column-width: 13em;
     grid-area: cardField;
+  }
+
+  article {
+    width: 33%;
   }
 
 }

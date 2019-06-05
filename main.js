@@ -80,30 +80,33 @@ function deleteTasksFromSidebar(e) {
   }
 };
 
-function urgentVal(urgent) {
+function generateAttributes(urgent) {
   if (urgent === true) {
-    return "images/urgent-active.svg"
+    articleVal = "yellow-card"
+    srcVal = "images/urgent-active.svg"
+    footerVal = "yellow-top-border"
   } else {
-    return "images/urgent.svg"
+    articleVal = ""
+    srcVal = "images/urgent.svg"
+    footerVal = ""
   }
 }
 
 function createTaskCard(card) {
+  generateAttributes(card.urgent)
   var newCard =
-    `<article class="card "data-id='${card.id}'>
+    `<article class="card ${articleVal}" data-id='${card.id}'>
       <header class="card-header">
         <h2>${card.title}</h2>
       </header>
       <section class="card-task-field">
         <ul class="card-list">
-          ${card.tasks.map(function (task) {
-      return `<div><img src="images/checkbox.svg" alt="small empty circle"><li class="card-task-items">${task}</li><div>`;
-    }).join('')}
+          ${generateList(card)}
         </ul>
       </section>
-      <footer class="card-footer">
+      <footer class="card-footer ${footerVal}">
         <a class="urgent">
-          <img src=${urgentVal(card.urgent)} class="urgent-button" id="${card.id}" alt="Lightning urgent Button"><span class="urgent-text">URGENT</span>
+          <img src=${srcVal} class="urgent-button" id="${card.id}" alt="Lightning urgent Button"><span class="urgent-text">URGENT</span>
         </a>
         <a class="delete">
           <img src="images/delete.svg" class="delete-card-button" alt="Delete Card X Button"><span class="delete-text">DELETE</span>
@@ -112,6 +115,12 @@ function createTaskCard(card) {
     </article>`
   cardField.insertAdjacentHTML('afterbegin', newCard);
 };
+
+function generateList(card) {
+  return card.tasks.map(function (task) {
+    return `<div><img src="images/checkbox.svg" alt="small empty circle"><li class="card-task-items">${task}</li><div>`;
+  }).join('')
+}
 
 function deleteCard(e) {
   if (e.target.className === 'delete-card-button') {
@@ -134,11 +143,19 @@ function toggleUrgent(e) {
     var foundCard = listArray.find(function (card) {
       return card.id === cardId;
     })
-    foundCard.updateUrgent();
-    if (foundCard.urgent === true) {
-      document.getElementById(cardId).src = "images/urgent-active.svg"
-    } else {
-      document.getElementById(cardId).src = "images/urgent.svg"
-    }
+    styleUrgency(e, foundCard, cardId)
   }
 };
+
+  function styleUrgency(e, foundCard, cardId) {
+    foundCard.updateUrgent();
+    if (foundCard.urgent === true) {
+      e.target.closest('.card').classList.add('yellow-card');
+      e.target.closest(".card-footer").classList.add('yellow-top-border');
+      document.getElementById(cardId).src = "images/urgent-active.svg"
+    } else {
+      e.target.closest('.card').classList.remove('yellow-card');
+      e.target.closest(".card-footer").classList.remove('yellow-top-border');
+      document.getElementById(cardId).src = "images/urgent.svg"
+    }
+  };

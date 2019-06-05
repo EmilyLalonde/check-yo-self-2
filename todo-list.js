@@ -7,7 +7,6 @@ class ToDoList {
   }
   saveToStorage(newTasks) {
       var stringifiedNewTasks = JSON.stringify(newTasks);
-      console.log('string', stringifiedNewTasks);
       localStorage.setItem('lists', stringifiedNewTasks);
   };
 
@@ -15,7 +14,6 @@ class ToDoList {
     var updatedList = listArray.filter(function(card){
       return card.id !== cardId;
     })
-    console.log('ulist', updatedList);
     this.saveToStorage(updatedList);
   }
 

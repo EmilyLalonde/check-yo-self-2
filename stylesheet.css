@@ -17,6 +17,7 @@ h1 {
   padding-top: 15px;
   text-align: center;
 }
+
 .yo-span {
   color: #ffc303;
 }
@@ -122,6 +123,10 @@ li {
   margin-left: 5%;
   margin-top: 30px;
   width: 90%;
+}
+
+.disabled {
+  cursor: not-allowed;
 }
 
 .aside-line {

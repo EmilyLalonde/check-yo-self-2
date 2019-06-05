@@ -140,8 +140,12 @@ li {
 }
 
 .indication-msg {
-  border: 1px dotted #ffe79d;
+  color: #1f1e3d;
+  font-size: 30px;
+  font-weight: 800;
   height: 100px;
+  margin-top: 30px;
+  text-align: center;
   width: 90%;
 }
 
@@ -273,10 +277,15 @@ footer {
 
   aside {
     grid-area: aside;
+    height: 100vh;
   }
 
   .card-Field {
     grid-area: cardField;
+  }
+
+  .indication-msg {
+    width: 48%
   }
 
   article {

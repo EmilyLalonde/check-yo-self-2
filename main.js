@@ -42,6 +42,7 @@ function recreateTasksCard() {
 function toggleMsg() {
   if (listArray.length === 0) {
     indicationMsg.innerText = 'Please create a to do list!'
+    
   } else {
     indicationMsg.innerText = '';
   }

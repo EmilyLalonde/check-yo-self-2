@@ -4,6 +4,7 @@ class ToDoList {
     this.title = list.title;
     this.urgent = list.urgent;
     this.tasks = list.tasks || [];
+    this.checked = list.checked;
   }
   saveToStorage(newTasks) {
       var stringifiedNewTasks = JSON.stringify(newTasks);

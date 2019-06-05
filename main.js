@@ -23,7 +23,7 @@ cardField.addEventListener('click', toggleCheckBox);
 
 function cardObjectFactory(e) {
   e.preventDefault();
-  var cardObj = new ToDoList({ id: Date.now(), title: taskTitleInput.value, urgent: false, tasks: tasksArray });
+  var cardObj = new ToDoList({ id: Date.now(), title: taskTitleInput.value, urgent: false, tasks: tasksArray, checked: false });
   listArray.push(cardObj);
   cardObj.saveToStorage(listArray);
   createTaskCard(cardObj);
@@ -33,7 +33,7 @@ function cardObjectFactory(e) {
 
 function recreateTasksCard() {
   listArray = listArray.map(function (oldTask) {
-    var restoredTasks = new ToDoList({ id: oldTask.id, title: oldTask.title, urgent: oldTask.urgent, tasks: oldTask.tasks });
+    var restoredTasks = new ToDoList({ id: oldTask.id, title: oldTask.title, urgent: oldTask.urgent, tasks: oldTask.tasks, checked: oldTask.checked });
     createTaskCard(restoredTasks);
     return restoredTasks;
   })
@@ -55,8 +55,10 @@ function clearAll() {
 function preventEmptyTaskGeneration() {
   if (taskItemInput.value === '') {
     addTaskBtn.disabled = true;
+    addTaskBtn.classList.add('disabled');
   } else {
     addTaskBtn.disabled = false;
+    addTaskBtn.classList.remove('disabled');
   }
 };
 
@@ -84,15 +86,15 @@ function deleteTasksFromSidebar(e) {
 
 function generateAttributes(urgent) {
   if (urgent === true) {
-    articleVal = "yellow-card"
-    srcVal = "images/urgent-active.svg"
-    footerVal = "yellow-top-border"
+    articleVal = 'yellow-card';
+    srcVal = 'images/urgent-active.svg';
+    footerVal = 'yellow-top-border';
   } else {
-    articleVal = ""
-    srcVal = "images/urgent.svg"
-    footerVal = ""
+    articleVal = '';
+    srcVal = 'images/urgent.svg';
+    footerVal = '';
   }
-}
+};
 
 function createTaskCard(card) {
   generateAttributes(card.urgent)
@@ -150,21 +152,21 @@ function toggleUrgent(e) {
 };
 
 function styleUrgency(e, foundCard, cardId) {
-    foundCard.updateUrgent();
-    if (foundCard.urgent === true) {
-      e.target.closest('.card').classList.add('yellow-card');
-      e.target.closest(".card-footer").classList.add('yellow-top-border');
-      document.getElementById(cardId).src = "images/urgent-active.svg"
-    } else {
-      e.target.closest('.card').classList.remove('yellow-card');
-      e.target.closest(".card-footer").classList.remove('yellow-top-border');
-      document.getElementById(cardId).src = "images/urgent.svg"
-    }
+  foundCard.updateUrgent();
+  if (foundCard.urgent === true) {
+    e.target.closest('.card').classList.add('yellow-card');
+    e.target.closest('.card-footer').classList.add('yellow-top-border');
+    document.getElementById(cardId).src = 'images/urgent-active.svg';
+  } else {
+    e.target.closest('.card').classList.remove('yellow-card');
+    e.target.closest('.card-footer').classList.remove('yellow-top-border');
+    document.getElementById(cardId).src = 'images/urgent.svg';
+  }
 };
 
 function toggleCheckBox(e) {
   if (e.target.className === 'checkbox') {
-    var taskId = e.target.closest('.card-task-items').getAttribute('data-checked');
+    var taskId = e.target.closest('.card-task-items');
     taskId = parseInt(taskId);
     var foundCard = listArray.find(function (card) {
       return card.id === taskId;
@@ -174,9 +176,9 @@ function toggleCheckBox(e) {
 };
 
 function styleCheckBox(e, foundCard, taskId) {
-  if(foundCard.checked === true){
-    document.getElementById(taskdId).src = "images/checkbox-active.svg"
-  }else{
-    document.getElementById(taskId).src = "images/checkbox.svg"
+  if (foundCard.checked === true) {
+    document.getElementById(taskdId).src = 'images/checkbox-active.svg';
+  } else {
+    document.getElementById(taskId).src = 'images/checkbox.svg';
   }
 }

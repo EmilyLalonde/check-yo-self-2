@@ -17,6 +17,7 @@ sidebarTaskField.addEventListener('click', deleteTasksFromSidebar);
 clearAllBtn.addEventListener('click', clearAll);
 makeTaskBtn.addEventListener('click', cardObjectFactory);
 cardField.addEventListener('click', cardFieldHelper);
+cardField.addEventListener('click', checkTask);
 
 function windowHelper() {
   toggleMsg()
@@ -171,3 +172,11 @@ function styleUrgency(e, foundCard, cardId) {
   }
 };
 
+function checkTask(e) {
+  e.preventDefault()
+  if (e.target) {
+      e.target.setAttribute('src', 'images/checkbox-active.svg')
+    }else{
+      e.target.setAttribute('src', 'images/checkbox.svg')
+    }
+  }

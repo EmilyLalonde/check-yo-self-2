@@ -9,16 +9,24 @@ var cardField = document.querySelector('.card-field');
 var tasksArray = [];
 var listArray = JSON.parse(localStorage.getItem('lists')) || [];
 
-window.addEventListener('load', toggleMsg);
-window.addEventListener('load', recreateTasksCard);
+window.addEventListener('load', windowHelper);
 taskItemInput.addEventListener('keyup', preventEmptyTaskGeneration);
 taskTitleInput.addEventListener('keyup', makeTaskBtnToggleAbility);
 addTaskBtn.addEventListener('click', addTasks);
 sidebarTaskField.addEventListener('click', deleteTasksFromSidebar);
 clearAllBtn.addEventListener('click', clearAll);
 makeTaskBtn.addEventListener('click', cardObjectFactory);
-cardField.addEventListener('click', deleteCard);
-cardField.addEventListener('click', toggleUrgent);
+cardField.addEventListener('click', cardFieldHelper);
+
+function windowHelper() {
+  toggleMsg()
+  recreateTasksCard();
+}
+
+function cardFieldHelper() {
+  deleteCard();
+  toggleUrgent();
+}
 
 function cardObjectFactory(e) {
   e.preventDefault();

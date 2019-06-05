@@ -162,8 +162,3 @@ function styleUrgency(e, foundCard, cardId) {
     document.getElementById(cardId).src = 'images/urgent.svg';
   }
 };
-
-
-
-
-

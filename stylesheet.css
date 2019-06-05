@@ -24,7 +24,7 @@ h1 {
 .search-div {
   border: 1px solid #5356a4;
   border-radius: 2px;
-  height: 40px;
+  height: 50px;
   margin-left: 5%;
   padding-bottom: 20px;
   width: 90%;
@@ -33,7 +33,7 @@ h1 {
 .search-btn {
   background-color: #c7d3d8;
   background-repeat: no-repeat;
-  height: 38px;
+  height: 48px;
   margin-right: -3px;
   padding: 7px;
   position: absolute;
@@ -42,7 +42,7 @@ h1 {
 
 .search-input {
   float: right;
-  height: 38px;
+  height: 48px;
   padding-left: 10px;
   width: 92%;
 }
@@ -82,7 +82,7 @@ li {
 .title-input {
   border: 2px solid #1f1e3d;
   border-radius: 2px;
-  height: 45px;
+  height: 50px;
   margin-bottom: 10px;
   margin-left: 5%;
   width: 90%;
@@ -91,7 +91,7 @@ li {
 .task-item-div {
   border: 2px solid #1f1e3d;
   border-radius: 2px;
-  height: 45px;
+  height: 50px;
   margin-left: 5%;
   padding-bottom: 20px;
   width: 90%;
@@ -99,14 +99,14 @@ li {
 
 .add-task-btn {
   background-color: #1f1e3d;
-  height: 41px;
+  height: 46px;
   padding: 7px;
   width: 14%;
 } 
 
 .item-input {
   float: left;
-  height: 40px;
+  height: 46px;
   width: 86%;
 }
 
@@ -262,17 +262,17 @@ footer {
 
   .search-div {
     margin-right: 10px;
-    margin-top: 15px;
+    margin-top: 12px;
     width: 30%;
   }
 
   .search-btn {
-    width: 5%;
+    width: 3%;
   }
 
   .search-input {
-    padding-left: 55px;
-    width: 95%;
+    padding-left: 35px;
+    width: 97%;
   }
 
   aside {

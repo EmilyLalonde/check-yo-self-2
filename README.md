@@ -14,3 +14,6 @@
 
 ### Mobile-Comp:
 ![image](https://user-images.githubusercontent.com/47184994/58046527-ce220d80-7b02-11e9-90b0-f533e717a094.png)
+
+### My Mobile-Comp
+![image](https://user-images.githubusercontent.com/47184994/58963038-ae791f00-8769-11e9-8858-1acf40969de1.png)

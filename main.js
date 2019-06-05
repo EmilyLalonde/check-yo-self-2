@@ -7,6 +7,7 @@ var clearAllBtn = document.querySelector('#clear-all-btn');
 var addTaskBtn = document.querySelector('.add-task-btn')
 var cardField = document.querySelector('.card-field');
 var cardList = document.querySelector('.card-list');
+var urgentBtn = document.querySelector('.urgent-button')
 var tasksArray = [];
 var listArray = JSON.parse(localStorage.getItem('lists')) || [];
 
@@ -19,20 +20,21 @@ sidebarTaskField.addEventListener('click', deleteTasksFromSidebar);
 clearAllBtn.addEventListener('click', clearAll);
 makeTaskBtn.addEventListener('click', cardObjectFactory);
 cardField.addEventListener('click', deleteCard);
-cardField.addEventListener('click', toggleUrgent);
+cardField .addEventListener('click', toggleUrgent)
 
 function cardObjectFactory(e) {
   e.preventDefault();
-  var cardObj = new ToDoList({id: Date.now(), title: taskTitleInput.value, urgent: false});
+  var cardObj = new ToDoList({id: Date.now(), title: taskTitleInput.value, urgent: false, tasks: tasksArray});
+  console.log(cardObj);
   listArray.push(cardObj);
   cardObj.saveToStorage(listArray);
   createTaskCard(cardObj);
   toggleMsg();
 };
 
-function recreateTasksCard(list) {
+function recreateTasksCard() {
   listArray = listArray.map(function(oldTask){
-  var restoredTasks = new ToDoList({id: oldTask.id, title: oldTask.title, urgent: false, tasks: list.tasks});
+  var restoredTasks = new ToDoList({id: oldTask.id, title: oldTask.title, urgent: oldTask.urgent, tasks: oldTask.tasks});
   createTaskCard(restoredTasks);
   return restoredTasks;
   })
@@ -95,16 +97,17 @@ function deleteTasksFromSidebar(e) {
   }
 };
 
-function createTaskCard(task) {
+function createTaskCard(card) {
   var newCard =
-`<article class="card "data-id='${task.id}'>
+`<article class="card "data-id='${card.id}'>
       <header class="card-header">
-        <h2>${task.title}</h2>
+        <h2>${card.title}</h2>
       </header>
       <section class="card-task-field">
         <ul class="card-list">
-          <img src="images/checkbox.svg" alt="small empty circle">
-          <li class="card-task-items">${tasksArray[0]}</li>
+          ${card.tasks.map(function(task){
+            return `<div><img src="images/checkbox.svg" alt="small empty circle"><li class="card-task-items">${task}</li><div>`;
+          }).join('')}
         </ul>
       </section>
       <footer class="card-footer">
@@ -118,63 +121,32 @@ function createTaskCard(task) {
     </article>`
     cardField.insertAdjacentHTML('afterbegin', newCard);
 };
-window.addEventListener('load', generateListOnCard);
-function generateListOnCard(card) {
-  console.log(card);
-}
-// window.addEventListener('lod', generateList);
-// function generateList(card) {
-//   var cardList = '';
-//   for (var i = 0; i < card.tasks.length; i++) {
-//     cardList += `<div><li class="todo-task-item"><img src="images/delete.svg" alt="circle button with an x through it" class="aside-delete-btn">${card.tasks[i].items}</li></div>`;
-//   }
-//   return cardList;
-// };
 
 function deleteCard(e) {
   if(e.target.className === 'delete-card-button'){
     var card = e.target.parentElement.parentElement.parentElement;
     card.remove();
   }
-};
-
-function findCard(e) {
-  var cardId = e.target.closest('.card').dataset.id;
+  var cardId = e.target.closest('.card').dataset.id
   cardId = parseInt(cardId);
-  var findCardId = listArray.find(function(card){
-  return card.id === cardId
+  var card = listArray.find(function(card){
+    card.id === cardId;
   })
-  cardId[0].deleteFromStorage(cardId, listArray)
-}
-
+  
+};
 
 function toggleUrgent(e) {
-  var urgentId = e.target.closest('.urgent-button').dataset.id;
-  urgentId = parseInt(urgentId);
-  var matchUrgentId = listArray.find(function(urgent){
-  return urgent.id === urgentId;
+  var cardId = e.target.closest('.card').dataset.id;
+  console.log('id',cardId)
+  cardId = parseInt(cardId);
+  var card = listArray.find(function(card){
+    card.id === cardId;
+    console.log('card',card)
   })
-  var toggleUrgent = e.target;
-  if(matchUrgentId.urgent === true) {
-    toggleUrgent.src = 'images/urgent-active.svg'
+  if(card.urgent === true){
+    console.log('urgent', urgent)
+    urgentBtn.innerHTML = "images/urgent-active.svg"
   }else{
-    toggleUrgent.src = 'images/urgent.svg'
+    urgentBtn.innerHTML = "images/urgent.svg"
   }
 };
-
-// function toggleStar(e) {
-//   if(e.target.classList.contains('star-active')) {
-//     var star = e.target.parentElement.parentElement;
-//     var starId = star.dataset.id;
-//     var storeIdStar = storageArray.find(function(obj) {
-//       return obj.id === parseInt(starId);
-//     });
-//     storeIdStar.updateStar(storageArray);
-//     var toggleStar = e.target;
-//     if(storeIdStar.star === true) {
-//       toggleStar.src = 'images/star-active.svg';
-//     } else {
-//       toggleStar.src = 'images/star.svg';
-//    }
-//   }
-// };

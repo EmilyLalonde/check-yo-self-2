@@ -19,7 +19,6 @@ clearAllBtn.addEventListener('click', clearAll);
 makeTaskBtn.addEventListener('click', cardObjectFactory);
 cardField.addEventListener('click', deleteCard);
 cardField.addEventListener('click', toggleUrgent);
-cardField.addEventListener('click', toggleCheckBox);
 
 function cardObjectFactory(e) {
   e.preventDefault();
@@ -42,15 +41,15 @@ function recreateTasksCard() {
 function toggleMsg() {
   if (listArray.length === 0) {
     indicationMsg.innerText = 'Please create a to do list!'
-    
   } else {
     indicationMsg.innerText = '';
   }
 };
 
 function clearAll() {
-  taskTitleInput.innerText = '';
-  sidebarTaskField.innerText = '';
+  taskTitleInput.value = '';
+  sidebarTaskField.innerHTML = '';
+  taskItemInput.value = '';
 };
 
 function preventEmptyTaskGeneration() {
@@ -125,13 +124,12 @@ function generateList(card) {
   return card.tasks.map(function (task) {
     return `<div><img src="images/checkbox.svg" alt="small empty circle" class="checkbox" "><li class="card-task-items" data-checked="${task.id}">  ${task}</li><div>`;
   }).join('')
-}
+};
 
 function deleteCard(e) {
   if (e.target.className === 'delete-card-button') {
     var card = e.target.parentElement.parentElement.parentElement;
     card.remove();
-
     var cardId = e.target.closest('.card').dataset.id
     cardId = parseInt(cardId);
     var card = listArray.find(function (card) {
@@ -165,21 +163,3 @@ function styleUrgency(e, foundCard, cardId) {
   }
 };
 
-function toggleCheckBox(e) {
-  if (e.target.className === 'checkbox') {
-    var taskId = e.target.closest('.card-task-items');
-    taskId = parseInt(taskId);
-    var foundCard = listArray.find(function (card) {
-      return card.id === taskId;
-    })
-    styleCheckBox(e, foundCard, taskId)
-  }
-};
-
-function styleCheckBox(e, foundCard, taskId) {
-  if (foundCard.checked === true) {
-    document.getElementById(taskdId).src = 'images/checkbox-active.svg';
-  } else {
-    document.getElementById(taskId).src = 'images/checkbox.svg';
-  }
-}

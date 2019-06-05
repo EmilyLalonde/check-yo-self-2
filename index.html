@@ -21,41 +21,22 @@
   <aside>
     <form>
       <label for="task-title">Task Title</label>
-      <input type="text" class="title-input" id="task-title">
+      <input type="text" class="title-input" id="task-title" aria-required="true">
       <ul class="task-generate-list">
-        <!-- <li class="todo-task-item"><img src="images/delete.svg" alt="circle button with an x through it" class="aside-delete-btn">Task Item Here</li> -->
       </ul>
       <label for="task-item">Task Item</label>
-      <div class="task-item-div"></div>
-      <input type="text" class="item-input" id="task-item">
-      <input type="image" src="images/search.svg" class="add-task-btn" disabled>
+      <div class="task-item-div">
+      <input type="text" class="item-input" id="task-item" aria-required="true">
+      <input type="image" src="images/plus.svg" class="add-task-btn" disabled>
       </div>
       <button type="submit" class="nav-btn" id="make-task-btn" disabled>Make Task List</button>
-      <button type="submit" class="nav-btn" id="clear-all-btn" disabled>Clear All</button>
+      <button type="submit" class="nav-btn" id="clear-all-btn" >Clear All</button>
+      <div class="aside-line"></div>
       <button type="submit" class="nav-btn" id="filter-urgency-btn">Filter by Urgency</button>
     </form>
   </aside>
   <section class="card-field">
     <p class="indication-msg"></p>
-    <!-- <article class="yellow-card">
-        <header class="card-header yellow-bottom-border">
-          <h2>Task Title</h2>
-        </header>
-        <section class="card-task-field">
-          <ul class="card-list">
-            <img src="images/checkbox.svg" alt="small empty circle">
-            <li class="card-task-items">Task Item Here</li>
-          </ul>
-        </section>
-        <footer class="card-footer yellow-top-border">
-          <a class="urgent-button">
-            <img src="images/urgent.svg" class="urgent-button" alt="Lightning urgent Button"><span class="urgent-text">URGENT</span>
-          </a>
-          <a class="delete">
-            <img src="images/delete.svg" class="delete-card-button" alt="Delete Card X Button"><span class="delete-text">DELETE</span>
-          </a>
-        </footer>
-      </article> -->
   </section>
 </body>
 <script src="todo-list.js"></script>

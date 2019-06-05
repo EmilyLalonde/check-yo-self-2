@@ -18,7 +18,8 @@ sidebarTaskField.addEventListener('click', deleteTasksFromSidebar);
 clearAllBtn.addEventListener('click', clearAll);
 makeTaskBtn.addEventListener('click', cardObjectFactory);
 cardField.addEventListener('click', deleteCard);
-cardField.addEventListener('click', toggleUrgent)
+cardField.addEventListener('click', toggleUrgent);
+cardField.addEventListener('click', toggleCheckBox);
 
 function cardObjectFactory(e) {
   e.preventDefault();
@@ -27,6 +28,7 @@ function cardObjectFactory(e) {
   cardObj.saveToStorage(listArray);
   createTaskCard(cardObj);
   toggleMsg();
+  clearAll();
 };
 
 function recreateTasksCard() {
@@ -46,7 +48,7 @@ function toggleMsg() {
 };
 
 function clearAll() {
-  taskTitleInput.innerHTML = '';
+  taskTitleInput.innerText = '';
   sidebarTaskField.innerText = '';
 };
 
@@ -105,7 +107,7 @@ function createTaskCard(card) {
         </ul>
       </section>
       <footer class="card-footer ${footerVal}">
-        <a class="urgent">
+        <a class="urgent-button">
           <img src=${srcVal} class="urgent-button" id="${card.id}" alt="Lightning urgent Button"><span class="urgent-text">URGENT</span>
         </a>
         <a class="delete">
@@ -118,7 +120,7 @@ function createTaskCard(card) {
 
 function generateList(card) {
   return card.tasks.map(function (task) {
-    return `<div><img src="images/checkbox.svg" alt="small empty circle"><li class="card-task-items">${task}</li><div>`;
+    return `<div><img src="images/checkbox.svg" alt="small empty circle" class="checkbox" "><li class="card-task-items" data-checked="${task.id}">${task}</li><div>`;
   }).join('')
 }
 
@@ -147,7 +149,7 @@ function toggleUrgent(e) {
   }
 };
 
-  function styleUrgency(e, foundCard, cardId) {
+function styleUrgency(e, foundCard, cardId) {
     foundCard.updateUrgent();
     if (foundCard.urgent === true) {
       e.target.closest('.card').classList.add('yellow-card');
@@ -158,4 +160,23 @@ function toggleUrgent(e) {
       e.target.closest(".card-footer").classList.remove('yellow-top-border');
       document.getElementById(cardId).src = "images/urgent.svg"
     }
-  };
+};
+
+function toggleCheckBox(e) {
+  if (e.target.className === 'checkbox') {
+    var taskId = e.target.closest('.card-task-items').getAttribute('data-checked');
+    taskId = parseInt(taskId);
+    var foundCard = listArray.find(function (card) {
+      return card.id === taskId;
+    })
+    styleCheckBox(e, foundCard, taskId)
+  }
+};
+
+function styleCheckBox(e, foundCard, taskId) {
+  if(foundCard.checked === true){
+    document.getElementById(taskdId).src = "images/checkbox-active.svg"
+  }else{
+    document.getElementById(taskId).src = "images/checkbox.svg"
+  }
+}

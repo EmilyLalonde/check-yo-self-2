@@ -25,9 +25,9 @@ h1 {
   border: 1px solid #5356a4;
   border-radius: 2px;
   height: 40px;
-  margin-left: 3%;
+  margin-left: 5%;
   padding-bottom: 20px;
-  width: 94%;
+  width: 90%;
 }
 
 .search-btn {
@@ -36,12 +36,14 @@ h1 {
   height: 38px;
   margin-right: -3px;
   padding: 7px;
+  position: absolute;
   width: 8%;
 } 
 
 .search-input {
   float: right;
   height: 38px;
+  padding-left: 10px;
   width: 92%;
 }
 
@@ -175,7 +177,6 @@ footer {
   display: flex;
   height: 15%;
   justify-content: space-between;
-
 }
 
 .card-icons {
@@ -201,9 +202,9 @@ footer {
 
 .delete-card-button {
   height: 20px;
+  margin-left: 25%;
   margin-top: 10px;
   width: 20px;
-  margin-left: 25%;
 }
 
 .yellow-card {
@@ -234,8 +235,7 @@ footer {
     "header header"
     "aside cardField";
     grid-template-columns: 30% 70%;
-    grid-template-rows: 9% 91%;
-    height: 100vh;
+    grid-template-rows: 6% 94%;
   }
 
   h1 {
@@ -254,9 +254,17 @@ footer {
     width: 30%;
   }
 
+  .search-btn {
+    width: 5%;
+  }
+
+  .search-input {
+    padding-left: 55px;
+    width: 95%;
+  }
+
   aside {
     grid-area: aside;
-    height: 100vh;
   }
 
   .card-Field {
@@ -264,7 +272,7 @@ footer {
   }
 
   article {
-    width: 33%;
+    width: 48%;
   }
 
 }

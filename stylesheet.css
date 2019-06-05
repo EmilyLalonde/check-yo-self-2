@@ -135,7 +135,14 @@ li {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  height: 100vh;
   padding-left: 20px;
+}
+
+.indication-msg {
+  border: 1px dotted #ffe79d;
+  height: 100px;
+  width: 90%;
 }
 
 article {
@@ -235,7 +242,8 @@ footer {
     "header header"
     "aside cardField";
     grid-template-columns: 30% 70%;
-    grid-template-rows: 6% 94%;
+    grid-template-rows: 9% 91%;
+    height: 100vh;
   }
 
   h1 {

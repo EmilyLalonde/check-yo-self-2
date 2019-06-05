@@ -120,7 +120,7 @@ function createTaskCard(card) {
 
 function generateList(card) {
   return card.tasks.map(function (task) {
-    return `<div><img src="images/checkbox.svg" alt="small empty circle" class="checkbox" "><li class="card-task-items" data-checked="${task.id}">${task}</li><div>`;
+    return `<div><img src="images/checkbox.svg" alt="small empty circle" class="checkbox" "><li class="card-task-items" data-checked="${task.id}">  ${task}</li><div>`;
   }).join('')
 }
 

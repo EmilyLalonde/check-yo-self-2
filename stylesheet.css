@@ -46,8 +46,8 @@ h1 {
 }
 
 img {
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
 }
 
 aside{
@@ -98,14 +98,13 @@ li {
 .add-task-btn {
   background-color: #1f1e3d;
   height: 41px;
-  margin-right: -3px;
   padding: 7px;
   width: 14%;
 } 
 
 .item-input {
   float: left;
-  height: 41px;
+  height: 40px;
   width: 86%;
 }
 
@@ -124,20 +123,17 @@ li {
 }
 
 .aside-line {
-  border: 1px inset #597a8b;
+  border: 2px inset #597a8b;
   margin-top: 30px;
 }
 
 .card-field {
   background-color: #f2f6f7;
   border: 2px solid #597a8b;
-  column-width: 13em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 100vh;
-  max-height: 1000px;
-  padding: 20px;
+  padding-left: 20px;
 }
 
 article {
@@ -145,8 +141,9 @@ article {
   border: 1px solid #c7d3d8;
   display: grid;
   grid-template-rows: 10% 65% 25%;
-  height: 240px;
+  min-height: 240px;
   margin-top: 20px;
+  width: 97%;
 }
 
 .card-header {
@@ -222,7 +219,14 @@ footer {
   border-bottom: 1px solid #ffc303;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (max-width: 340px) {
+
+  .site-header {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 790px) {
 
   body {
     display: grid;
@@ -256,8 +260,6 @@ footer {
   }
 
   .card-Field {
-    columns: 2 250px;
-    column-gap: 30px;
     grid-area: cardField;
   }
 

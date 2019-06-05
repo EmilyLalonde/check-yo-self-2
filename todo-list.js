@@ -5,16 +5,21 @@ class ToDoList {
     this.urgent = list.urgent;
     this.tasks = list.tasks || [];
   }
-  saveToStorage(newTask) {
-      var stringifiedNewTask = JSON.stringify(newTask);
-      localStorage.setItem('lists', stringifiedNewTask);
+  saveToStorage(newTasks) {
+      var stringifiedNewTasks = JSON.stringify(newTasks);
+      console.log('string', stringifiedNewTasks);
+      localStorage.setItem('lists', stringifiedNewTasks);
   };
 
-  deleteFromStorage() {
-    
+  deleteFromStorage(cardId) {
+    var updatedList = listArray.filter(function(card){
+      return card.id !== cardId;
+    })
+    console.log('ulist', updatedList);
+    this.saveToStorage(updatedList);
   }
 
-  updateUrgent(listArray) {
+  updateUrgent() {
     this.urgent = !this.urgent;
     this.saveToStorage(listArray);
   }
